@@ -36,13 +36,14 @@ def grab_all_data_by_label(page, page_num):
     for one in result:
         industry = one.get("industry", "")
         label_id = one.get("label_id", "")
-        get_base_info_of_company(industry, label_id, 1)
+        get_base_info_of_company(industry, label_id)
 
-def get_base_info_of_company(industry, label_id, page=1):
+def get_base_info_of_company(industry, label_id):
     phase_list = [ "SEED", "ANGEL", "PRE_A", "A", "A_PLUS", "PRE_B", "B", "B_PLUS", "C", "C_PLUS", "D", "E" ]
     #phase_list = [ "SEED"]
     for one_phase in phase_list:
         total_page_num = 1000
+        page = 1
         while (page <= total_page_num):
             second = random.randint(1, 20)
             second1 = round(random.random(), 2)
